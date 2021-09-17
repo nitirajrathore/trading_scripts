@@ -1,0 +1,8 @@
+./run_simulation.sh ~/Documents/niji/company_analysis/hdfcbank/2020-2021/500180.csv 1130.05 1130.05 1104.55 1113.71
+
+./daily_run_simulation.sh ~/Documents/niji/company_analysis/hdfcbank/2020-2021/500180.csv 1130.05 1130.05 1104.55 1113.71
+
+
+
+
+
