@@ -10,7 +10,7 @@ def log(msg, type="warn"):
 
 
 def write_data(output_file, ohlc, curr_date, date_fmt):
-    line = f"{ohlc.open},{ohlc.high},{ohlc.low},{ohlc.close},{curr_date.strftime(date_fmt)}\n"
+    line = f"{ohlc.open},{ohlc.high},{ohlc.low},{ohlc.close},{curr_date.strftime(date_fmt) if curr_date is not None else ''}\n"
     if output_file is not None:
         output_file.write(line)
     else:
@@ -26,7 +26,8 @@ class ohlc:
 def main(file_path, date_column, low_column, high_column, open_column, close_column, previous_heiken_ohlc, date_format, output_file, no_headers):
     line_no = 0
     first_line = True
-    
+
+    write_data(output_file, previous_heiken_ohlc, None, date_format)
     with open(file_path, "r") as input_file:
         for line in input_file:
             log(f"read line : {line}")

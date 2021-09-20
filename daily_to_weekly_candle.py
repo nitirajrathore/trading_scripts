@@ -54,10 +54,10 @@ def main(file_path, date_column, open_column, high_column, low_column,  close_co
             if weekday == 5 or weekday == 6:
                 log(f"File contains {weekdays_array[weekday]} data for day {curr_date} at line number {line_no}")
     
-            if week < current_week:
-                # this date's week cannot be smaller than current week unless its a different year.
-                if previous_date is not None and previous_date.year == year:
-                    raise Exception(f"this date's week {week} cannot be smaller than current week {current_week} for the same year {year}")
+            # if week < current_week:
+            #     # this date's week cannot be smaller than current week unless its a different year.
+            #     if previous_date is not None and previous_date.year == year:
+            #         raise Exception(f"this date's week {week} cannot be smaller than current week {current_week} for the same year {year}")
     
             if week != current_week:
                 open_value, high, low, close = formula(opens, highs, lows, closes)
