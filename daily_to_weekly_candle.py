@@ -83,7 +83,7 @@ def main(file_path, date_column, open_column, high_column, low_column,  close_co
 
 def weekly_candle(opens, highs, lows, closes):
     # print(f" opens {opens} \n  highs = {highs} \n lows : {lows} \n closes : {closes} \n")
-    return opens[0], max(highs), min(lows), closes[-1]
+    return opens[0], max(highs + closes + opens), min(lows + closes + opens), closes[-1]
 
 
 if __name__ == '__main__':

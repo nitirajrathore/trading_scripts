@@ -42,8 +42,8 @@ def main(file_path, close_column, open_column, output_file, no_headers, ):
                 continue
 
             cols = line.strip().split(',')
-            curr_close = cols[close_column]
             curr_open = cols[open_column]
+            curr_close = cols[close_column]
 
             if not first_line:
                 color = decide_candle_color(curr_open, curr_close)
@@ -71,8 +71,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.output_file is None:
-        main(args.file_path, args.close_column - 1, args.open_column - 1, None, args.no_headers)
+        main(args.file_path, args.open_column - 1, args.close_column - 1, None, args.no_headers)
     else:
         with open(args.output_file, "w") as out_file:
-            main(args.file_path, args.close_column - 1, args.open_column - 1, out_file, args.no_headers)
+            main(args.file_path, args.open_column - 1, args.close_column - 1, out_file, args.no_headers)
 
