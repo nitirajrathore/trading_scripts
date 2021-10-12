@@ -69,10 +69,10 @@ def main(file_path, date_column, open_column, high_column, low_column,  close_co
                 current_week = week
                 week_start_date = curr_date
     
-            lows.append(cols[low_column])
-            highs.append(cols[high_column])
-            opens.append(cols[open_column])
-            closes.append(cols[close_column])
+            lows.append(float(cols[low_column]))
+            highs.append(float(cols[high_column]))
+            opens.append(float(cols[open_column]))
+            closes.append(float(cols[close_column]))
     
             previous_date = curr_date
             first_line = False

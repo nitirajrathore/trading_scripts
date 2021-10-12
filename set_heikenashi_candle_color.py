@@ -30,7 +30,7 @@ class ohlc:
         self.close = float(close)
 
 
-def main(file_path, close_column, open_column, output_file, no_headers, ):
+def main(file_path, open_column, close_column, output_file, no_headers, ):
     line_no = 0
     first_line = True
 
@@ -42,11 +42,12 @@ def main(file_path, close_column, open_column, output_file, no_headers, ):
                 continue
 
             cols = line.strip().split(',')
-            curr_open = cols[open_column]
-            curr_close = cols[close_column]
-
+            curr_open = float(cols[open_column])
+            curr_close = float(cols[close_column])
+            print(f"curr_open = {curr_open}   curr_close = {curr_close}")
             if not first_line:
                 color = decide_candle_color(curr_open, curr_close)
+                print(f"Color : {color}")
                 write_line(output_file, f"{line.strip()},{color}\n")
 
             first_line = False
@@ -70,6 +71,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    print(f"Nitiraj color parasm :{args}")
     if args.output_file is None:
         main(args.file_path, args.open_column - 1, args.close_column - 1, None, args.no_headers)
     else:
